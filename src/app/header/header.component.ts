@@ -88,7 +88,6 @@ export class HeaderComponent implements OnInit {
 
 
     this.apiService.esService(this.esService).subscribe((res: any) => {
-      debugger
       this.loginUser = res.responses[0].result_table[0].idsid;
       console.log(this.loginUser)
       this.userName =
@@ -235,7 +234,6 @@ export class HeaderComponent implements OnInit {
 
     /* get release note */
     this.apiService.GetVersion().subscribe((res: any) => {
-      debugger
       if (res) {
         this.releaseNote = res.version;
         this.link = res.technologyDetails[0].technologyInfo.split(": ");
@@ -287,7 +285,6 @@ user:boolean = false;
 
   getUserOnboardInfo(){
     this.apiService.GetUserOnboardInfo().subscribe((res:any) =>{
-      debugger
        this.userOnboardInfo = res.userOnboardInfo;
       this.userOnboardInfo.forEach((element:any) => {
          if(element.userName === this.name){

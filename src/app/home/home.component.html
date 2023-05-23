@@ -1,6 +1,29 @@
 <mat-progress-bar id="myDIV" class="mat-progress-bar-buffer" *ngIf="displayProgressSpinner" mode="indeterminate"></mat-progress-bar>
+
 <div id="page">
-    <div class="page page-1">
+    <div class="top-field">
+        <div class="form-group">
+            <label for="Platform">PROGRAM</label>
+            <select name="Platform" id="Platform" class="form-select" [(ngModel)]="selectedPlatform">
+                <option value="" selected disabled>Select Program</option>
+                <option *ngFor="let option of platformList" >{{option.programName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Platform">SKU</label>
+            <select name="Platform" id="Platform" class="form-select">
+                <option value="" selected disabled>Select SKU</option>
+                <!-- <option *ngFor="let option of platformList" >{{option.programName}}</option> -->
+            </select>
+        </div>
+        <div class="view">
+            <button class="view-btn" mat-raised-button color="primary" (click)="getDetails()">VIEW</button>
+        </div>
+    </div>
+    <div class="no-content" *ngIf="!isProgram">
+        <p>Please select filters</p>
+    </div>
+    <div class="page page-1" *ngIf="isProgram">
         <div class="m-3 mt-2">
             <div class="row row-height px-md-3 th_setwidth">
                 <div class="col-6 brd_div">
@@ -798,7 +821,7 @@
             </div>
         </div>
     </div>
-    <div class="page page-2">
+    <div class="page page-2" *ngIf="isProgram">
         <!---------------------------------------Functional defects--------------------------------------------------->
         <!-- <div class="mt-3"  [class]="hide_emailcontent? 'show_emailcontent':''">&nbsp;</div> -->
         <div class="container-fluid py-2 py-md-3">

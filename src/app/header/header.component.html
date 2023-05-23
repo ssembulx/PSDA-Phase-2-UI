@@ -21,8 +21,8 @@
 <section class="second-header">
     <div class="text-width-left text-center">
 
-        <a [routerLink]="['/']" class="top-link-text" (click)="goHome()">Home</a>
-        <a [routerLinkActive]="['active']" [routerLink]="['/query']" (click)="platformAdd()" class="top-link-text">Add Query</a>
+        <a [routerLink]="['home']" class="top-link-text" (click)="goHome()">Home</a>
+        <!-- <a [routerLinkActive]="['active']" [routerLink]="['/query']" (click)="platformAdd()" class="top-link-text">Add Query</a> -->
 
         <!-- <div > -->
         <!-- <a  *ngIf="router.url != '/'" [routerLinkActive]="['active']" [routerLink]="['/report']" (click)="report()" class="top-link-text">Report Generation</a> -->
@@ -37,21 +37,21 @@
                     </mat-select>  
                     </span>
                 </div> -->
-        <div class="col-2 top-link-text1">
+        <!-- <div class="col-2 top-link-text1">
             <span> 
                     <mat-select [(value)]="selectedPlatform" (selectionChange)="platformChange($event.value)" placeholder="Select Program" >
                         <mat-option class="text-uppercase mat_option"  *ngFor="let platform of ddList" [value]="platform.programName" >
                         {{platform.programName}}
-                        </mat-option>
+                        </mat-option> -->
                         <!-- <div class="mt-1" *ngIf="router.url != '/'">
                             <span class="add px-1" data-toggle="tooltip" title="Edit Query" (click)="platformEdit(platform.programName)"><i class="fa fa-pencil-square-o pr-1" aria-hidden="true"></i>Edit</span>
             <span class="remove px-1" data-toggle="tooltip" title="Remove Query" (click)="platformRemove(platform.programName)"><i class="fa fa-trash pr-1" aria-hidden="true"></i>Remove</span>
         </div> -->
-        </mat-select>
+        <!-- </mat-select>
         </span>
 
-    </div>
-    <div class="dropdown d-flex">
+    </div> -->
+    <!-- <div class="dropdown d-flex">
         <button class="dropdown_btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Component Mapping <i class="fa fa-caret-down" aria-hidden="true"></i>
                     </button>
@@ -59,7 +59,7 @@
             <a (click)="tableDetails(1)" class="dropdown-item">Component Mapped</a>
             <a (click)="tableDetails1(1)" class="dropdown-item">Component Unmapped</a>
         </div>
-    </div>
+    </div> -->
     <!-- </div> -->
     <a [routerLink]="['/onboardingPlatform']" class="top-link-text" *ngIf = 'user'>Onboarding Platform</a>
 

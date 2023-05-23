@@ -487,32 +487,31 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')]]
     });
-
+    this.getPlatform();
     //   this.checkAll();
     //this.getPlatformData();
-    this.aRouter.queryParamMap.subscribe((data: any) => {
+    // this.aRouter.queryParamMap.subscribe((data: any) => {
 
-      if (JSON.stringify(data.params) != '{}') {
-        console.log(this.platformName = data.params.platform);
-        this.platformName = this.platformName;
-        this.newPlatformName = this.platformName;
-        console.log(this.newPlatformName);
-        this.getPlatformData();
-      }
+      // if (JSON.stringify(data.params) != '{}') {
+      //   console.log(this.platformName = data.params.platform);
+      //   this.platformName = this.platformName;
+      //   this.newPlatformName = this.platformName;
+      //   console.log(this.newPlatformName);
+      //   this.getPlatformData();
+      // }
 
-      this.Payload = {
-        "platform": this.platformName,
-        "ChartNo": "1",
-        "Filter": "",
-        "status": "open,implemented,verified"
-      }
-      this.totalPayload = {
-        "platform": this.platformName
-      }
+    //   this.Payload = {
+    //     "platform": this.platformName,
+    //     "ChartNo": "1",
+    //     "Filter": "",
+    //     "status": "open,implemented,verified"
+    //   }
+    //   this.totalPayload = {
+    //     "platform": this.platformName
+    //   }
 
-    })
-
-    this.onValChange('Week');
+    // })
+// this.onValChange('week');
     this.apiService.getDataFilterList().subscribe((res: any) => {
 
       // this.statusList = res.statusList;
@@ -527,7 +526,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
         element["checked"] = true
 
       });
-
       console.log(this.exposureList)
 
     });
@@ -3067,6 +3065,38 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
       }
     })
+  }
+
+
+/**PSDA Phase 2 works */
+  platformList: any= [];
+  isProgram: boolean = false;
+  selectedPlatform: any;
+
+  /** Data for Platform Select Dropdown */
+  getPlatform(){
+    this.apiService.getEditQueryResult().subscribe((res: any) => {
+      let pgmDetails = res.editQueryDetails.forEach((m: any) => {
+        const newObjArr = [{ programName: m.programName }];
+        this.platformList = [...this.platformList, ...newObjArr]
+      });
+      this.platformList;
+    })
+  }
+  /** Top field View button method */
+  getDetails(){
+    this.isProgram = true;
+    this.platformName = this.selectedPlatform
+    this.Payload = {
+      "platform": this.platformName,
+      "ChartNo": "1",
+      "Filter": "",
+      "status": "open,implemented,verified"
+    }
+    this.totalPayload = {
+      "platform": this.platformName
+    }
+    this.onValChange('Week');
   }
 }
 // function getGroupDomainData() {

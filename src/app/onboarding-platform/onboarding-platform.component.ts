@@ -101,7 +101,7 @@ export class OnboardingPlatformComponent implements OnInit {
   }
   getOnboardingPlatformData(){
     this.apiService.getOnboardingPlatformData().subscribe((res:any) => {
-      debugger
+
         this.platformData = res;
         this.platformList = this.platformData.platformList;
         console.log("platform data",this.platformList)
@@ -110,7 +110,7 @@ export class OnboardingPlatformComponent implements OnInit {
         let list : any = [];
         
         //list = this.infoList;
-        debugger
+  
         for(let i=0;i<this.infoList.length;i++){
           list[i] = this.infoList[i].description;
           let arr = [];
@@ -178,12 +178,10 @@ export class OnboardingPlatformComponent implements OnInit {
   }
   //*** adding paltform data ****//
   AddPlatform(){
-    debugger
     const regex = /^[a-zA-Z0-9_]+$/;
     if (regex.test(this.PlatformName)) {
       // this.invalidInput = true;
     
-    debugger
     // let isCSLP = this.onBoardingPlatform.value.isCslp
     let req = {
   		"platformName": this.PlatformName,
@@ -202,7 +200,7 @@ export class OnboardingPlatformComponent implements OnInit {
   		"type": 'C'
    }
     this.apiService.getAddPlatformDetails(req).subscribe((res:any) =>{
-      debugger
+
       console.log("table data",res);
        if(res.result.status == false){
         this.AddErrorpopupmsg = res.result.message;
@@ -246,10 +244,10 @@ export class OnboardingPlatformComponent implements OnInit {
 
      //**** for edit onboarding platform form*****//
      EditPlatformRow(editmodal: any, id: any){
-        debugger;
+  ;
         this.platformList.forEach((element: any) => {
           if (element.id == id) {
-            debugger;
+      ;
             this.modal['id'] = element.id;
             this.modal['platformName'] = element.platformName;
             this.modal['originalQueryUrl'] = element.originalQueryUrl;
@@ -364,7 +362,6 @@ export class OnboardingPlatformComponent implements OnInit {
 //*** Click platform name from table it will redirect to particular cahrt page ****//
   selectedPlat: any;
   platformChange(value:any) {
-    debugger
     // this.PlatformValues = value;
     this.selectedPlat = value;
     let payload = {

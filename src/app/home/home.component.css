@@ -1614,3 +1614,50 @@ font-weight: 700; */
         content: '100%';
     }
 } */
+
+/* PSDA Phase 2 CSS*/
+.top-field{
+    display: flex;
+    margin: 7px 5px 0px 5px;
+}
+.top-field > .form-group{
+    width: 21%;
+}
+.top-field > .form-group > label {
+    margin-bottom: 0px;
+    background-color: #0071c5;;
+    line-height: 32px;
+    width: 29%;
+    text-align: center;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    color: white;
+}
+.top-field > .form-group > .form-select{
+    height: 32px;
+    width: 50%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-left: none;
+}
+.top-field > .form-group > .form-select:focus{
+    outline: none !important;
+}
+.top-field .view .view-btn{
+    background: #0071c5 !important;
+    font-family: Intel Clear, tahoma, Helvetica, Arial, sans-serif !important;
+    height: 32px;
+    display: flex;
+    align-items: center;
+}
+.no-content{
+    height: 18rem;
+    display: flex;
+    justify-content: center;
+}
+.no-content p{
+    text-align: center;
+    align-self: center;
+    font-size: 22px;
+    color: #c1c1c1;
+}
